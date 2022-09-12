@@ -6,8 +6,8 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'ssrApp' })],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppBrowserModule { }

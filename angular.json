@@ -2,7 +2,9 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "server": "apps/server",
     "ui": "apps/ui",
     "ui-e2e": "apps/ui-e2e"
-  }
+  },
+  "defaultProject": "ui"
 }
