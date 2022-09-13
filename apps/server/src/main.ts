@@ -2,21 +2,26 @@
  * This is not a production server yet!
  * This is only a minimal backend to get started.
  */
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory }    from '@nestjs/core';
+import { AppModule }      from './app/app.module';
+import { setupSession }   from './config/setup-session';
+import { setupSwagger }   from './config/setup-swagger';
 
-import { Logger } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
-
-import { AppModule } from './app/app.module';
+const env = process.env;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3333;
-  await app.listen(port);
-  Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
+
+  setupSession(app);
+  setupSwagger(app);
+
+  app.useGlobalPipes(
+    new ValidationPipe({ whitelist: true, transform: true })
   );
+
+  const port = env.PORT || 3333;
+  await app.listen(port);
 }
 
 bootstrap();

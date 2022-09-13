@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "nestjsAngularTalk",
+            "prefix": "nat",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "nestjs-angular-talk",
+            "prefix": "nat",
             "style": "kebab-case"
           }
         ]

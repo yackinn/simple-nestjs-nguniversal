@@ -23,7 +23,13 @@
           "@nestjs/microservices/microservices-module",
           "@nestjs/websockets",
           "@nestjs/websockets/socket-module",
-          "cache-manager"
+          "cache-manager",
+          "class-transformer",
+          "class-transformer/storage",
+          "class-validator",
+          "typeorm",
+          "bcrypt",
+          "@mapbox"
         ],
         "optimization": false
       },
@@ -79,6 +85,7 @@
     "serve-ssr": {
       "executor": "@nxarch/ng-nest:build",
       "options": {
+        "browsers": ["Google Chrome"],
         "browserTarget": "ui:build:development",
         "ssrTarget": "ui:ssr:development",
         "serveTarget": "server:serve:development"

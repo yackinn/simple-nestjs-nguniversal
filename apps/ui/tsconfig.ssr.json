@@ -10,5 +10,6 @@
   },
   "files": [
     "src/main.ssr.ts"
-  ]
+  ],
+  "include": ["../../typings/**/*.ts"]
 }
