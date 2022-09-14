@@ -1,5 +1,7 @@
 import { Body, Controller, Get, Post, UseGuards, } from '@nestjs/common';
+import { SessionHandler }                          from '../../../shared/session/session-handler';
 import { SessionUser }                             from '../../../shared/session/session-user.decorator';
+import { Session }                                 from '../../../shared/session/session.decorator';
 import { toResponse }                              from '../../../shared/to-response.util';
 import { SessionGuard }                            from '../../auth/guards/session.guard';
 import { User }                                    from '../models/user.entity';
@@ -17,10 +19,15 @@ export class UserController {
   }
 
   @Post('register')
-  async register(@Body() createUserDto: CreateUserDto): Promise<UserResponse> {
-    const user = await this.userService.createUser(createUserDto);
+  async register(
+    @Body() createUserDto: CreateUserDto,
+    @Session() session: SessionHandler
+  ): Promise<UserResponse> {
+    const user   = await this.userService.createUser(createUserDto);
+    session.user = toResponse(UserResponse, user);
+    console.log('register - is logged in set', session.sessionState);
 
-    return toResponse(UserResponse, user);
+    return session.user;
   }
 
   @UseGuards(SessionGuard)

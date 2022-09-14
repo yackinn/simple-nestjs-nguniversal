@@ -29,7 +29,9 @@
           "class-validator",
           "typeorm",
           "bcrypt",
-          "@mapbox"
+          "@mapbox",
+          "reflect-metadata",
+          "zone.js/dist/zone-node"
         ],
         "optimization": false
       },
@@ -85,7 +87,6 @@
     "serve-ssr": {
       "executor": "@nxarch/ng-nest:build",
       "options": {
-        "browsers": ["Google Chrome"],
         "browserTarget": "ui:build:development",
         "ssrTarget": "ui:ssr:development",
         "serveTarget": "server:serve:development"

@@ -20,5 +20,4 @@ import { RenderModule }           from './render/render.module';
   controllers: [],
   providers: [],
 })
-export class AppModule {
-}
+export class AppModule {}

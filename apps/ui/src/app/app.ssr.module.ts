@@ -18,8 +18,6 @@ import { SESSION_STATE }        from './shared/tokens';
       useFactory: (request: Request, transferState: TransferStateService) => {
         const sessionState = request.session?.context?.sessionState;
         transferState.set('sessionState', sessionState);
-        console.log('[AppSsrModule] Set Session State Factory', sessionState);
-
         return sessionState;
       },
       deps: [REQUEST, TransferStateService]
@@ -28,6 +26,3 @@ import { SESSION_STATE }        from './shared/tokens';
   bootstrap: [AppComponent],
 })
 export class AppSsrModule {}
-
-// todo check ssr changes not rendered on request
-// should be reflected on request as javascript bundle is used

@@ -1,6 +1,7 @@
-import { ApiExpose } from '../../../../shared/api-expose.decorator';
+import { IUserResponse } from '@nestjs-angular-talk/core/domain';
+import { ApiExpose }     from '../../../../shared/api-expose.decorator';
 
-export class UserResponse {
+export class UserResponse implements IUserResponse{
   @ApiExpose()
   id: string;
 

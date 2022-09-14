@@ -1,19 +1,34 @@
-<mat-form-field appearance='fill'>
-  <mat-label>Email</mat-label>
-  <input matInput [formControl]='form.controls.email'>
-</mat-form-field>
+<div class='container h-full m-auto flex flex-col justify-center items-center'>
+  <h1 class='mat-display-2'>Register</h1>
+  <form [formGroup]='form' (submit)='onSubmit()'>
+    <div class='flex justify-center flex-wrap mb-8'>
+      <div class='w-full flex justify-center mb-8'>
+        <mat-form-field appearance='fill' class='mr-8'>
+          <mat-label>Email</mat-label>
+          <input matInput [formControl]='form.controls.email'>
+        </mat-form-field>
 
-<mat-form-field appearance='fill'>
-  <mat-label>Password</mat-label>
-  <input matInput [formControl]='form.controls.password'>
-</mat-form-field>
+        <mat-form-field appearance='fill' class='ml-8'>
+          <mat-label>Password</mat-label>
+          <input matInput [formControl]='form.controls.password'>
+        </mat-form-field>
+      </div>
 
-<mat-form-field appearance='fill'>
-  <mat-label>Firstname</mat-label>
-  <input matInput [formControl]='form.controls.firstName'>
-</mat-form-field>
+      <h5 class='mat-headline'>Optional</h5>
+      <div class='w-full flex justify-center'>
+        <mat-form-field appearance='fill' class='mr-8'>
+          <mat-label>Firstname</mat-label>
+          <input matInput [formControl]='form.controls.firstName'>
+        </mat-form-field>
 
-<mat-form-field appearance='fill'>
-  <mat-label>Lastname</mat-label>
-  <input matInput [formControl]='form.controls.lastName'>
-</mat-form-field>
+        <mat-form-field appearance='fill' class='ml-8'>
+          <mat-label>Lastname</mat-label>
+          <input matInput [formControl]='form.controls.lastName'>
+        </mat-form-field>
+      </div>
+
+      <button type='submit' mat-raised-button color='primary'>Submit</button>
+    </div>
+  </form>
+  <h3><a routerLink='/login' class='underline'>Already have an account?</a></h3>
+</div>

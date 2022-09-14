@@ -19,8 +19,7 @@ export class LoggedInGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     return this.stateService.state.pipe(map(state => {
-      console.log('[LoggedInGuard] check logged in');
-      if (state.uiState?.isLoggedIn) return true;
+      if (state.user) return true;
 
       return this.router.createUrlTree(['/login']);
     }));

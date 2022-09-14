@@ -5,19 +5,18 @@ import { SESSION_STATE }                from '../shared/tokens';
 
 interface State {
   uiState?: UiState,
-  user?: User
+  user?: User | null
 }
 
 @Injectable({ providedIn: 'root' })
 export class StateService {
   private _state = new BehaviorSubject<State>({});
-
-  public state = this._state.asObservable();
+  public state   = this._state.asObservable();
 
   constructor(
     @Optional() @Inject(SESSION_STATE) sessionState: SessionState
   ) {
-    console.log('[StateService] sessionState', sessionState);
+    this.nextState(sessionState);
   }
 
   nextState(state: Partial<State>) {

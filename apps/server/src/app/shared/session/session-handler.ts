@@ -17,9 +17,9 @@ export class SessionHandler {
   constructor(private request: Request) {
     if (!request?.session?.context) request.session.context = {
       sessionState: {
+        user: null,
         uiState: {
-          isDarkTheme: false,
-          isLoggedIn: false
+          isDarkTheme: false
         }
       }
     };
@@ -54,6 +54,10 @@ export class SessionHandler {
 
   set sessionState(state: Partial<SessionContext['sessionState']>) {
     this.request.session.context.sessionState = { ...this.sessionState, ...state };
+  }
+
+  set user(user: User) {
+    this.sessionState.user = user;
   }
 
   get user(): User | undefined {

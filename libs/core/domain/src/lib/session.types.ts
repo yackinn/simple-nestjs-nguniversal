@@ -6,8 +6,7 @@ export interface SessionContext {
 }
 
 export interface UiState {
-  isDarkTheme: boolean;
-  isLoggedIn: boolean;
+  isDarkTheme?: boolean;
 }
 
 export interface SessionState {

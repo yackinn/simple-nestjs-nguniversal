@@ -1,9 +1,21 @@
-<mat-form-field appearance='fill'>
-  <mat-label>Email</mat-label>
-  <input matInput [formControl]='form.controls.email'>
-</mat-form-field>
+<div class='container h-full m-auto flex flex-col justify-center items-center'>
+  <h1 class='mat-display-2'>Login</h1>
+  <form [formGroup]='form' (submit)='onSubmit()'>
+    <div class='flex justify-center mb-8 flex-wrap'>
+      <mat-form-field appearance='fill' class='mr-8'>
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]='form.controls.email'>
+      </mat-form-field>
 
-<mat-form-field appearance='fill'>
-  <mat-label>Password</mat-label>
-  <input matInput [formControl]='form.controls.password'>
-</mat-form-field>
+      <mat-form-field appearance='fill' class='ml-8'>
+        <mat-label>Password</mat-label>
+        <input matInput [formControl]='form.controls.password'>
+      </mat-form-field>
+
+      <div class='w-full flex justify-center'>
+        <button type='submit' mat-raised-button color='primary'>Submit</button>
+      </div>
+    </div>
+  </form>
+  <h3><a routerLink='/register' class='underline'>Don't have an account? Register</a></h3>
+</div>
