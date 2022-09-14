@@ -5,7 +5,6 @@ import { Session }                                    from '../../../shared/sess
 import { toResponse }                                 from '../../../shared/to-response.util';
 import { UserResponse }                               from '../../user/webservice/dto/user.response';
 import { LocalAuthGuard }                             from '../guards/local-auth.guard';
-import { SessionGuard }                               from '../guards/session.guard';
 
 @Controller('api/auth')
 export class AuthController {

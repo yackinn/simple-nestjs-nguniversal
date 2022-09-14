@@ -8,8 +8,6 @@ import { AppModule }      from './app/app.module';
 import { setupSession }   from './config/setup-session';
 import { setupSwagger }   from './config/setup-swagger';
 
-console.log("Application", process.pid)
-
 const env = process.env;
 
 async function bootstrap() {
